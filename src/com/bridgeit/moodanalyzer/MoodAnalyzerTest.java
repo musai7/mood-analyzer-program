@@ -2,23 +2,17 @@ package com.bridgeit.moodanalyzer;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class MoodAnalyzerTest {
 	
 	public static MoodAnalyzer moodAnalyzer;
-	
-	@BeforeClass
-	public static void initialize() {
-		moodAnalyzer = new MoodAnalyzer();
-	}
 
 	@Test
 	public void test_Analyse_Mood_Return_Happy() {
 		
-		String message = "i am in happy mood";
-		String currentMood = moodAnalyzer.analyzerMood(message);
+		moodAnalyzer = new MoodAnalyzer("i am in happy");
+		String currentMood = moodAnalyzer.analyzerMood();
 		
 		assertEquals("HAPPY", currentMood);	
 	}
@@ -26,9 +20,9 @@ public class MoodAnalyzerTest {
 	@Test
 	public void test_Analyse_Mood_Return_Sad() {
 		
-		String message = "i am in sad mood";
-		String currentMood = moodAnalyzer.analyzerMood(message);
+		moodAnalyzer = new MoodAnalyzer("i am in sad mood");
+		String currentMood = moodAnalyzer.analyzerMood();
 		
-		assertEquals("SAD", currentMood);	
+		assertEquals("SAD", currentMood);
 	}
 }
